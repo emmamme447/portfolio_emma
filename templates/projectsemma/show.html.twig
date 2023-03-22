@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projectsemma{% endblock %}
+
+{% block body %}
+    <h1>Projectsemma</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ projectsemma.id }}</td>
+            </tr>
+            <tr>
+                <th>Project_name</th>
+                <td>{{ projectsemma.projectName }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ projectsemma.date ? projectsemma.date|date('M-y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Used_technology</th>
+                <td>{{ projectsemma.usedTechnology }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_projectsemma_index') }}">back to list</a>
+
+    <a href="{{ path('app_projectsemma_edit', {'id': projectsemma.id}) }}">edit</a>
+
+    {{ include('projectsemma/_delete_form.html.twig') }}
+{% endblock %}

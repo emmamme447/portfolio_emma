@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projectsemma index{% endblock %}
+
+{% block body %}
+    <h1>Projectsemma index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Project_name</th>
+                <th>Date</th>
+                <th>Used_technology</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for projectsemma in projectsemmas %}
+            <tr>
+                <td>{{ projectsemma.id }}</td>
+                <td>{{ projectsemma.projectName }}</td>
+                <td>{{ projectsemma.date ? projectsemma.date|date('M-y') : '' }}</td>
+                <td>{{ projectsemma.usedTechnology }}</td>
+                <td>{{ projectsemma.image }}</td>
+                <td>
+                    <a href="{{ path('app_projectsemma_show', {'id': projectsemma.id}) }}">show</a>
+                    <a href="{{ path('app_projectsemma_edit', {'id': projectsemma.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_projectsemma_new') }}">Create new</a>
+{% endblock %}
