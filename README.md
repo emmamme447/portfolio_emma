@@ -1,2 +1,2 @@
-# portfolio_emma
-my protfolio (pending update)
+# portfolio_emma_backend
+my portfolio (pending update)
